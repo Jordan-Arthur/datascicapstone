@@ -1,0 +1,65 @@
+<html>
+  <head>
+  <style>
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.42857143;
+    color: #000;
+}
+  </style>
+  </head>
+  <body>
+    <div style="margin: auto;text-align:center;width:900px;">
+	<div style="text-align:left;">
+  <h1>Capstone Report</h1>
+<h3>Introduction/Business Problem</h3>
+A marketing company specializing in producing and mailing direct mail marketing pieces for their clients, independent small businesses like hair salons and restaurants in Los Angeles county California, is looking to expand into Ventura and Santa Barbara counties. With years of experience and by tracking the redemption of coupon codes, the leadership at the marketing company has a good understanding of what neighborhoods are best suited to receive the direct mail marketing pieces.  
+The problem is a lack of similar knowledge of neighborhoods in Ventura and Santa Barbara counties. Targeting the correct neighborhoods is important since unlike email marketing that has a very low cost, direct physical mail pieces are relatively expensive to produce and deliver.
+The deliverables for this project are: 
+<br>
+<br>
+1.	Find census block level areas in Santa Barbara and Ventura that are most like the know target areas in Los Angeles. This is who will be mailed the marketing material by the marketing company on behalf of their small business clients.
+<br>
+2.	Find businesses by category that are within 5 kilometers of the target areas. These are the marketing company’s potential clients. 
+
+<br>
+<h3>Data</h3>
+This project required two different data sets. The first is demographic data for neighborhoods that will be the target of the direct mailing pieces. The second is location data for businesses that will be offered the services of the marketing company.
+A data file was provided by the marketing company that contains Los Angeles Census Block level data for the following datapoints. All values are show as a percent to total of the available data for each census block. In addition, each census block is marked as Target = True or False. 
+<ul>
+<li>	Males 50 years and older</li>
+<li>	Females 50 years and older</li>
+<li>	Education level of a bachelor’s degree or higher</li>
+<li>Household income of $100 or more</li>
+<li>No children under 18 in the household</li>
+</ul> 
+
+<p>
+Data Sources
+<br>
+The demographic data for the neighborhoods was retrieved using the US Census data API 
+<br>
+https://www.census.gov/data/developers/data-sets.html 
+<br>
+Geolocation data came from TIGER/Line Shape files 
+<br>https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
+<br>
+The foursquare.com API was used to gather business location data.
+<br>
+https://developer.foursquare.com/docs/api
+
+<br>
+<a href='https://jordan-arthur.github.io/datascicapstone/CapstoneProject_JordanArthur.html'> Junyper Notebook</a>
+<br>
+<a href='https://jordan-arthur.github.io/datascicapstone/capstone-report-jordan-arthur.pdf'> Full Report</a>
+
+
+
+</p>
+</div>
+
+  <iframe src="https://jordan-arthur.github.io/datascicapstone/map_capstone.html" style="height:600px;width:900px;border:none;"></iframe>
+      </div>
+  </body>
+</html>
