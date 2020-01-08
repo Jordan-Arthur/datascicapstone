@@ -1,5 +1,2 @@
-theme: jekyll-theme-slate
-title: Welcome to the site
-description: Random projects
+about
 
-hello
