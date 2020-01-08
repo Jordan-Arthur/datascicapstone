@@ -8,6 +8,7 @@ theme: jekyll-theme-slate
    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
   <style>
     #map{ width: 960px; height:960px; }
+  .inner {min-width: 960px;width: 960px;}
   </style>
 </head>
 <body>
