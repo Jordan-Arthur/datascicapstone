@@ -1,4 +1,8 @@
-
+---
+layout: page
+title: State Flags Map
+theme: jekyll-theme-slate
+---
 <html>
 <head>
   <title>State Flags Map</title>
