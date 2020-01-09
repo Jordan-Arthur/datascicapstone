@@ -10,9 +10,9 @@ description: Map of State Flags - Resizing a background image on a leaflet map l
 
 #### Load json file and create SVG pattern defs that are used in the background
 
-  <div id="map"></div>
+<div id="map"></div>
 
-  <script src="js/statemap.js"></script>
+
 
 
 ```javascript
@@ -56,3 +56,5 @@ function removeAndAdd() {
     });
 }
 ``` 
+
+<script src="js/statemap.js"></script>
