@@ -10,6 +10,16 @@ title: State Flags Map
   .inner {min-width: 960px;width: 960px;}
   .page-header {
     padding: 1rem 1rem;	  }
+	  .page-header {
+    color: 
+#fff;
+text-align: center;
+background-color:
+#7b9387;
+background-image: linear-gradient(120deg,
+#7aa8d7,
+    #729792);
+}
   </style>
 </head>
 <body>
