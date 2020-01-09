@@ -79,9 +79,33 @@ function adjustFills() {
 function adjustpattern(theid) {
     var item = document.querySelector('[fill="url(#p' + theid + ')"]');
     var bb = item.getBBox();
-    var newheight = bb.height;
-    var newwidth = bb.width;
-    var newv = 0;
+    var bbh = bb.height;
+    var bbw = bb.width;
+   
+    var elem = document.getElementById('sf' + theid);
+    var imghref = elem.getAttribute("href");
+   
+    var tempi = document.createElement("IMG");
+        tempi.setAttribute("src", imghref);
+
+   var h = tempi.naturalWidth; 
+   var w = tempi.naturalHeight;
+  
+   var dh = 0;
+   var dw = 0;
+
+  if (bbh>=bbw){
+  	dh=bbh;
+  	dw=bbh*(w/h)
+  
+  } else {
+  dw=bbw;
+  dh=bbw*(h/w)
+  }
+ 
+   
+   
+   /*  var newv = 0;
     var newx = 0;
     if (newheight > newwidth) {
         newv = newheight;
@@ -90,14 +114,14 @@ function adjustpattern(theid) {
         newv = newwidth;
         newx = newv * -0.33;
     }
+ */
 
-
-    var elem = document.getElementById('sf' + theid);
+ 
    // var nh = elem.naturalHeight;
    // var nw = elem.naturalWidth;
-    elem.setAttribute("height", newv);
-    elem.setAttribute("width", newv);
-    elem.setAttribute("x", newx);
+    elem.setAttribute("height", dh);
+    elem.setAttribute("width", dw);
+    elem.setAttribute("x", 0);
 }
 
 
