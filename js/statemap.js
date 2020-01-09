@@ -1,3 +1,7 @@
+$( document ).ready(function() {
+   
+
+
 // initialize the map
 var map = L.map('map').setView([39.4, -106.4], 5);
 
@@ -40,7 +44,7 @@ var geoJsonData;
         });
 })();
 
-
+});
 
 function addpattern(theid, theurl) {
     var s = document.getElementById('svgdef');
