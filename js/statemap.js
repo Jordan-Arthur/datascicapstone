@@ -93,8 +93,10 @@ function adjustpattern(theid) {
 
 
     var elem = document.getElementById('sf' + theid);
-    elem.setAttribute("height", newv);
-    elem.setAttribute("width", newv);
+    var nh = elem.naturalHeight;
+    var nw = elem.naturalWidth;
+    elem.setAttribute("height", nh);
+    elem.setAttribute("width", nw);
     elem.setAttribute("x", newx);
 }
 
