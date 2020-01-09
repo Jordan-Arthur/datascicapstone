@@ -57,7 +57,7 @@ function addpattern(theid, theurl) {
 
     var image = document.createElementNS('http://www.w3.org/2000/svg', 'image');
     image.setAttribute("id", "sf" + theid);
-    image.setAttribute("href", theurl);
+    image.setAttribute("xlink:href", theurl);
     //image.setAttribute("preserveAspectRatio","xMidYMid slice");
     defs.appendChild(pattern);
     pattern.appendChild(image);
