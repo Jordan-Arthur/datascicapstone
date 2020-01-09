@@ -96,11 +96,11 @@ function adjustpattern(theid) {
 
   if (bbh>=bbw){
   	dh=bbh;
-  	dw=bbh*(w/h)
+  	dw=bbh //*(w/h)
   
   } else {
   dw=bbw;
-  dh=bbw*(h/w)
+  dh=bbw //*(h/w)
   }
  
    
@@ -120,7 +120,7 @@ function adjustpattern(theid) {
    // var nh = elem.naturalHeight;
    // var nw = elem.naturalWidth;
     elem.setAttribute("height", dh);
-    elem.setAttribute("width", dh);
+    elem.setAttribute("width", dw);
     elem.setAttribute("x", 0);
 }
 
