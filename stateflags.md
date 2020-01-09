@@ -31,6 +31,11 @@ description: Map of State Flags - Resizing a background image on a leaflet map l
   </defs>
 </svg>
 
+
+
+<script src="js/statemap.js"></script>
+</body>
+
 ```javascript
 function removeAndAdd() {
     geoJsonData.eachLayer(function(layer) {
@@ -41,6 +46,3 @@ function removeAndAdd() {
     });
 }
 ```
-
-<script src="js/statemap.js"></script>
-</body>
