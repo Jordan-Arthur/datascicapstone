@@ -17,7 +17,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 
 (function() {
-    $.getJSON("js/states_5m.json")
+    $.getJSON("https://jordan-arthur.github.io/datsci/js/states_5m.json")
         .done(function(data) {
             ddd = data;
             $.each(data.features, function(index, d) {
