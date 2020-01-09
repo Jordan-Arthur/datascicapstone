@@ -57,7 +57,7 @@ function removeAndAdd() {
   <style>
   #map{height:700px; }
   </style>
-  <svg id="svgdef">
+  <svg id="svgdef" xmlns:xlink="http://www.w3.org/1999/xlink">
 </svg>  
 <script src="js/statemap.js"></script>
 
