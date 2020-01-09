@@ -88,8 +88,8 @@ function adjustpattern(theid) {
     var tempi = document.createElement("IMG");
         tempi.setAttribute("src", imghref);
 
-   var h = tempi.naturalWidth; 
-   var w = tempi.naturalHeight;
+   var w = tempi.naturalWidth; 
+   var h = tempi.naturalHeight;
   
    var dh = 0;
    var dw = 0;
