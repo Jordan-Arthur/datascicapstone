@@ -83,13 +83,13 @@ function adjustpattern(theid) {
     var bbw = bb.width;
    
     var elem = document.getElementById('sf' + theid);
-    var imghref = elem.getAttribute("href");
+ //   var imghref = elem.getAttribute("href");
    
-    var tempi = document.createElement("IMG");
-        tempi.setAttribute("src", imghref);
+ //   var tempi = document.createElement("IMG");
+ //       tempi.setAttribute("src", imghref);
 
-   var w = tempi.naturalWidth; 
-   var h = tempi.naturalHeight;
+//   var w = tempi.naturalWidth; 
+//   var h = tempi.naturalHeight;
   
    var dh = 0;
    var dw = 0;
