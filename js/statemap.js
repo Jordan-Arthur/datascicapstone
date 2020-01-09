@@ -54,11 +54,12 @@ function addpattern(theid, theurl) {
     pattern.setAttribute("y", "0");
     pattern.setAttribute("width", "1");
     pattern.setAttribute("height", "1");
+   
 
     var image = document.createElementNS('http://www.w3.org/2000/svg', 'image');
     image.setAttribute("id", "sf" + theid);
     image.setAttribute("href", theurl);
-    //image.setAttribute("preserveAspectRatio","xMidYMid slice");
+    image.setAttribute("preserveAspectRatio","xMidYMax slice");
     defs.appendChild(pattern);
     pattern.appendChild(image);
     s.appendChild(defs);
