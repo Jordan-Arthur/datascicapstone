@@ -120,7 +120,7 @@ function adjustpattern(theid) {
    // var nh = elem.naturalHeight;
    // var nw = elem.naturalWidth;
     elem.setAttribute("height", dh);
-    elem.setAttribute("width", dw);
+    elem.setAttribute("width", dh);
     elem.setAttribute("x", 0);
 }
 
