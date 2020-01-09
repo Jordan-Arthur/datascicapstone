@@ -32,5 +32,5 @@ description: State Flags Map
 </svg>
 
 
-<script src="statemap.js"></script>
+<script src="js/statemap.js"></script>
 </body>
