@@ -1,8 +1,7 @@
 ---
 description: Map of State Flags - Resizing a background image on a leaflet map layer
 ---
-<!doctype html>
-<html>
+
 <head>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
@@ -37,7 +36,7 @@ description: Map of State Flags - Resizing a background image on a leaflet map l
 
 <script src="js/statemap.js"></script>
 </body>
-</html>
+
 #### Load json file and create SVG pattern defs that are used in the background
 ```javascript
 (function() {
