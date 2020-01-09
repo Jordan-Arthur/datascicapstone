@@ -14,7 +14,7 @@ var ddd;
 var geoJsonData;
 
 (function() {
-    $.getJSON("states_5m.json")
+    $.getJSON("js/states_5m.json")
         .done(function(data) {
             ddd = data;
             $.each(data.features, function(index, d) {
