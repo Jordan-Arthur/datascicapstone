@@ -1,13 +1,13 @@
 ---
 description: Map of State Flags - Resizing a background image on a leaflet map layer
 ---
-#### Load json file and create SVG pattern defs that are used in the background
+#### Leaflet, geojson svg layer with background images
 <section>
 <div id="map"></div>
 </section>
 
 
-
+#### Load json file and create SVG pattern defs that are used in the background
 ```javascript
 (function() {
     $.getJSON("js/states_5m.json")
