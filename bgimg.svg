@@ -7,8 +7,8 @@
     <title>Text Pattern Fill Example</title>
     <defs>
         <pattern id="img1" patternUnits="userSpaceOnUse" width="600" height="450">
-            <image xlink:href="daisy-grass-repeating-background.jpg" x="0" y="0"
-                width="600" height="450" /><!-- Image from http://silviahartmann.com/background-tile/6-grass-meadow-tile.php-->
+            <image xlink:href="https://www.petmd.com/sites/default/files/Acute-Dog-Diarrhea-47066074.jpg" x="0" y="0"
+                width="600" height="450" />
         </pattern>
     </defs>
     <path d="M5,50
