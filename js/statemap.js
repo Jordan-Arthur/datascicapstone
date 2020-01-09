@@ -44,7 +44,7 @@ var geoJsonData;
         });
 })();
 
-});
+
 
 function addpattern(theid, theurl) {
     var s = document.getElementById('svgdef');
@@ -117,3 +117,4 @@ function removeAndAdd() {
         layer.addTo(map);
     });
 }
+});
