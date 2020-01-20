@@ -59,6 +59,6 @@ function removeAndAdd() {
   </style>
   <svg id="svgdef">
 </svg>  
-<script src="js/statemap.js"></script>
+<script src="js/statemapa.js"></script>
 
 
