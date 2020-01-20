@@ -23,7 +23,8 @@ $(document).ready(function() {
 
     var map = L.map('map', {
         center: [39.4, -106.4],
-        zoom: 5
+        zoom: 5,
+		layers: [Stamen_TonerBackground]
     });
 
 
@@ -45,8 +46,13 @@ $(document).ready(function() {
                         layName.indexOf(newItem) === -1 ? layName.push(newItem) : null;
                     }
                 });
+				var lcount=0;
                 layName.forEach(function(element) {
                     overlays[element] = L.featureGroup();
+					if (lcount==0){
+					overlays[element].addTo(map);
+					}
+					lcount++;
                 });
             })
             .done(function(data) {
@@ -71,12 +77,13 @@ $(document).ready(function() {
                 adjustFills();
 
                 var baseLayers = {
-                    "Grayscale": baseMap,
-                    "ST": Stamen_TonerBackground,
-                    "no map": nomap
+                    "Standard": baseMap,
+                    "Simple": Stamen_TonerBackground,
+                    "No Map": nomap
                 };
 
-                L.control.layers(baseLayers, overlays).addTo(map);
+                L.control.layers(baseLayers, overlays,{collapsed: false}).addTo(map);
+
             });
 
     };
@@ -87,9 +94,9 @@ $(document).ready(function() {
             style: function(feature) {
                 return {
                     fillColor: "url(#p" + fillcode + feature.properties.STATE + ")",
-                    color: "#b5d5e6b0",
-                    weight: 0.25,
-                    opacity: 0.5,
+                    color: "#ffffff",
+                    weight: 1,
+                    opacity: 1,
                     fillOpacity: 0.3
                 };
             }
@@ -129,8 +136,9 @@ $(document).ready(function() {
 				oncount++;	
 				}
 			};
-			var op= (oncount>0) ? 1/oncount : 0.5;
-	    $.each(geoJsonData.features, function(index, d) {
+		var op= (oncount>0) ? 1/oncount : 0.5;
+	   
+	   $.each(geoJsonData.features, function(index, d) {
 	        for (var k in d.properties["layers"]) {
                 for (var i in overlays) {
                     if (i.toLowerCase() == d.properties["layers"][k].name) {
