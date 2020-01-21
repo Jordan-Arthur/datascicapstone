@@ -36,7 +36,6 @@ $(document).ready(function() {
   
 
     function addjson() {
-        //$.getJSON("https://jordan-arthur.github.io/datsci/js/states_5m.json")
         $.getJSON("js/states_5ma.json")
             .done(function(data) {
                 $.each(data.features, function(index, d) {
@@ -49,9 +48,9 @@ $(document).ready(function() {
 				var lcount=0;
                 layName.forEach(function(element) {
                     overlays[element] = L.featureGroup();
-					if (lcount==0){
+				//	if (lcount==0){
 					overlays[element].addTo(map);
-					}
+				//	}
 					lcount++;
                 });
             })
