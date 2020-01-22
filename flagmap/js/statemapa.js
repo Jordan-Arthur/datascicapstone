@@ -48,9 +48,9 @@ $(document).ready(function() {
 				var lcount=0;
                 layName.forEach(function(element) {
                     overlays[element] = L.featureGroup();
-				//	if (lcount==0){
+					//if (lcount==0){
 					overlays[element].addTo(map);
-				//	}
+					//}
 					lcount++;
                 });
             })
@@ -82,7 +82,8 @@ $(document).ready(function() {
                 };
 
                 L.control.layers(baseLayers, overlays,{collapsed: false}).addTo(map);
-
+				map.inertia = false;
+				
             });
 
     };
@@ -118,6 +119,7 @@ $(document).ready(function() {
 
         $(image1).attr("id", "sf" + pattype + theid)
             .attr("href", theurl)
+			.attr("class", "stateimage")
             .attr("preserveAspectRatio", "xMidYMax slice");
 
 
@@ -165,13 +167,13 @@ $(document).ready(function() {
 
 
     map.on('zoomend', function() {
-        for (var i in overlays) {
+      /*  for (var i in overlays) {
             if (map.hasLayer(overlays[i])) {
                 map.removeLayer(overlays[i]);
                 map.addLayer(overlays[i]);
             }
         }
-
+	*/	
     });
 
 
@@ -183,4 +185,34 @@ $(document).ready(function() {
         adjustFills();
     });
 
+	map.on("moveend", function() {
+		  for (var i in overlays) {
+            if (map.hasLayer(overlays[i])) {
+                map.removeLayer(overlays[i]);
+                map.addLayer(overlays[i]);
+            }
+        }
+    });	
+
+	
+	map.on("mouseup", function() {
+		adjustcenter();
+		adjustFills();
+    });	
+	
+	map.on("keyup", function() {
+//		adjustcenter();
+//		adjustFills();
+    });	
+
+ function adjustcenter() {
+	mc=map.getCenter();
+    map.panTo(L.latLng(mc.lat, mc.lng+0.001));
+ };	
+
+
+
 });
+
+
+
