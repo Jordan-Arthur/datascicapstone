@@ -194,7 +194,7 @@ $(document).ready(function() {
         }
     });	
 
-	
+/*	
 	map.on("mouseup", function() {
 		adjustcenter();
 		adjustFills();
@@ -210,7 +210,7 @@ $(document).ready(function() {
     map.panTo(L.latLng(mc.lat, mc.lng+0.001));
  };	
 
-
+*/
 
 });
 
