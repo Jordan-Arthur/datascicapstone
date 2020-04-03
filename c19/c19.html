@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<style>
+  #map{height:500px;width:800px;background-color:#ddd; }
+   .circle {
+    width: 50px;
+    height: 30px;
+	font-size:1em;
+	color:white;
+	text-align:center;
+	line-height:30px;
+	background-color:transparent;
+}
+  button{background-color:transparent;borders:none;}
+  
+ .center {
+  margin: auto;
+  padding: 10px;
+}
+  
+
+  body{font-family: 'Roboto', sans-serif;background-color:#92b1ac;}
+  
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
+</head>
+<body>
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+
+
+
+<div  class="center" id="map"></div>
+
+<br>
+
+<br>
+
+<div class="center" style="width:800px;border:1px sliver solid;padding:10px;background-color:#92b1ac;">
+<div >
+<table style="font-size:1.25em;color:#fefefe;" class="center">
+<colgroup>
+<col style="width:150px">
+<col style="width:150px">
+<col style="width:150px">
+<col style="width:150px">
+</colgroup>
+<tr>
+	<td style="text-align:right;"><button id="startpan"><div class="circle">Start &#9655;</div></button></td>
+	<td style="text-align:right;"><span style="color:white;" id="timesince" ></span></td>
+</tr>
+
+<tr style="height:4em;"><td colspan="2" style="text-align:right;border-bottom:solid 1px white;">United States</td><td style="text-align:right;border-bottom:solid 1px white"><span id='countyname'>&nbsp</span><td></tr>
+<tr>
+	<td>Cases:</td>
+	<td style="text-align:right;"><span id="infectedcount">0</span></td>
+	<td style="text-align:right;"><span id="infectedcountC"></span></td>
+	</tr>
+<tr>
+	<td>Deaths:</td>
+	<td style="color:#fe0000;text-align:right;"><span id="facount" ></span></td>
+	<td style="color:#fe0000;text-align:right;"><span id="facountC" ></span></td>
+</tr>
+<tr><td>Rate:</td><td style="text-align:right;"></td><td style="text-align:right;"><span id="rateC" >&nbsp;</span></td></tr>
+<tr><td>Population:</td><td style="text-align:right;"></td><td style="text-align:right;"><span id="populationC" ></span></td></tr>
+<tr><td>Per 100k:</td><td style="text-align:right;">&nbsp;</td><td style="text-align:right;"><span id="per100C" ></span></td></tr>
+</table>
+</div>  
+
+<script src="js/covid.js"></script>
+
+
+
+</body>
+</html>
+
+
