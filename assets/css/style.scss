@@ -1,5 +1,9 @@
 @import "site.theme";
-
+body {
+  min-width: 960px;
+  width: 960px;
+  margin:auto;
+}
 .inner {
   min-width: 960px;
   width: 960px;
