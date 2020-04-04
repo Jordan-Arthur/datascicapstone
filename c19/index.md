@@ -87,11 +87,9 @@ geojson.write(dumps({"type": "FeatureCollection",  "features": buffer,"country":
 
 
 geojson.close()
-print("done")
-```
 
-    start
     
+```   
 
 
 ```python
@@ -200,12 +198,11 @@ geojson.close()
   }
 
   body{font-family: 'Roboto', sans-serif;background-color:#92b1ac;}
-  
+  table td tr{border:none;}
   </style>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>  
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
-</head>
-<body>
+
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
 
@@ -245,5 +242,7 @@ geojson.close()
 <tr><td>Per 100k:</td><td style="text-align:right;"><span id="per100" ></span></td><td style="text-align:right;"><span id="per100C" ></span></td></tr>
 </table>
 </div>  
-<div class="center" style="padding:30px;width:950px;">Data source: weather.com - https://watsonads.cogads.weather.com/wa/covid19-bot2020-03-18-15-15-14-610/fetchvardata?type=aggregate&recordType=all&locationType=geocode&locationId=34.69,-84.45, one file per county filtered and combined for use here.<div>
+
+<div class="center" style="padding:30px;width:950px;">Data source: weather.com - https://watsonads.cogads.weather.com/wa/covid19-bot2020-03-18-15-15-14-610/fetchvardata?type=aggregate&recordType=all&locationType=geocode&locationId=34.69,-84.45, one file per county filtered and combined for use here.</div>
+	
 <script src="js/covid.js"></script>
