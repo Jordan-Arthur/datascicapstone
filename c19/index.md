@@ -3,8 +3,7 @@ import shapefile
 import requests
 import json
 from json import dumps
-import folium
-from folium import FeatureGroup, LayerControl, Map, Marker, Popup
+
 ```
 
 
