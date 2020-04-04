@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <style>
-  #map{height:500px;width:800px;background-color:#ddd; }
+  #map{height:500px;width:950px;background-color:#ddd; }
    .circle {
     width: 50px;
     height: 30px;
@@ -20,6 +20,12 @@
   padding: 10px;
 }
   
+  .title{
+  color:white;
+  font-weight:bold;
+  font-size:2.5em;
+  width:950px;
+  }
 
   body{font-family: 'Roboto', sans-serif;background-color:#92b1ac;}
   
@@ -33,21 +39,18 @@
 
 
 
-
+<div class="title center">60 Day Covid-19 by County Animation</div>
+<div class="center" style="width:950px;"><span>Press "Start" below, hover over county to see details</span></div>
 <div  class="center" id="map"></div>
 
-<br>
+<div class="center">
 
-<br>
-
-<div class="center" style="width:800px;border:1px sliver solid;padding:10px;background-color:#92b1ac;">
-<div >
 <table style="font-size:1.25em;color:#fefefe;" class="center">
 <colgroup>
 <col style="width:150px">
 <col style="width:150px">
 <col style="width:150px">
-<col style="width:150px">
+
 </colgroup>
 <tr>
 	<td style="text-align:right;"><button id="startpan"><div class="circle">Start &#9655;</div></button></td>
@@ -65,9 +68,9 @@
 	<td style="color:#fe0000;text-align:right;"><span id="facount" ></span></td>
 	<td style="color:#fe0000;text-align:right;"><span id="facountC" ></span></td>
 </tr>
-<tr><td>Rate:</td><td style="text-align:right;"></td><td style="text-align:right;"><span id="rateC" >&nbsp;</span></td></tr>
-<tr><td>Population:</td><td style="text-align:right;"></td><td style="text-align:right;"><span id="populationC" ></span></td></tr>
-<tr><td>Per 100k:</td><td style="text-align:right;">&nbsp;</td><td style="text-align:right;"><span id="per100C" ></span></td></tr>
+<tr><td>Rate:</td><td style="text-align:right;"><span id="rate" >&nbsp;</span></td><td style="text-align:right;"><span id="rateC" >&nbsp;</span></td></tr>
+<tr><td>Population:</td><td style="text-align:right;"><span id="population" ></span></td><td style="text-align:right;"><span id="populationC" ></span></td></tr>
+<tr><td>Per 100k:</td><td style="text-align:right;"><span id="per100" ></span></td><td style="text-align:right;"><span id="per100C" ></span></td></tr>
 </table>
 </div>  
 
