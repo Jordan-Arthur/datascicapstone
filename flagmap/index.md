@@ -2,9 +2,9 @@
 description: Map of State Flags - Resizing a background image on a leaflet map layer
 ---
 #### Leaflet, geojson svg layer with background images
-<section>
+
 <div id="map"></div>
-</section>
+
 #### Add images to geojson file and have them display as the background of the polygon they are associated with, in this case states
 ````javascript
  {
