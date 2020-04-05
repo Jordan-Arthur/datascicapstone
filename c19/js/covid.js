@@ -32,14 +32,16 @@ var tlattr='<span style="background=color:#92b1ac">&copy; <a href="https://stadi
         center: [39, -96],
         zoom: 4.5,
 		layers: [custom2],
-   	    zoomSnap: 0.25
+   	    zoomSnap: 0.25,
+		attributionControl: false
     });
 	
-	var tsi=0.0;
-	var ts = setInterval(function(){
-			tsi=tsi+0.5;
-		}, 500);
+	L.control.attribution({
+  position: 'topright'
+}).addTo(map);
 	
+	
+		
 
     var layName = [];
     var overlays = {};
@@ -67,25 +69,71 @@ var tlattr='<span style="background=color:#92b1ac">&copy; <a href="https://stadi
 			return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
 	}
 
+	function myFunction(item, index) {
+		item.clearLayers();
+	} 
+	
+	
+	$('#startpan').click(function(){
+		overlays["0"].clearLayers();
+		overlays["1"].clearLayers();
+		overlays["2"].clearLayers();
+		overlays["3"].clearLayers();
+		overlays["4"].clearLayers();
+		overlays["5"].clearLayers();
+		overlays["6"].clearLayers(); 
+		
+		
+		
+	   x=addcounties(500);
+	  
+	});
+	
+	
+
+
+
+	function removeAnamationFromPath(){
+	map.eachLayer(function(layer){
+		if (layer.myData){
+			var igroup=layer.myData.properties.IGROUP;
+				if (isNaN(igroup)){igroup=0;}
+				var igroupval =((0.15*(igroup+1))*.9).toFixed(2);
+				layer.options.fillOpacity=igroupval;
+				layer.options.opacity=0.75;
+
+		}
+	});
+	
+	}
+	
+	
+	
+	
 	
 	
 	function addcounties(interv){
 		countyList.length=0;	
 		countyListA.length=0;	
-		overlays["c"].clearLayers();
 		selectdateoffset=0;	
 		var i = 59;
 		var intervalId = setInterval(function(){
 
 			if(i < 1){
 			clearInterval(intervalId);
+			removeAnamationFromPath();
+			return "dod";
 			}
-			addday(i)
+			addday(i);
 			selectdateoffset=i;
 			i--;
 		}, interv);
-		
+	
 	}
+	
+	
+	
+	
 	var selectdateoffset;
 	var selectmarker;
 	var daytot=0;
@@ -115,26 +163,44 @@ var tlattr='<span style="background=color:#92b1ac">&copy; <a href="https://stadi
 					if (d.properties.DATES[offsetdate][0] > 0){
 						if (!countyList.includes(d.properties.GEOID)){
 							countyList.push(d.properties.GEOID);
+						if (d.properties.GEOID=='0500000US06037'){updateCounty(d);}  //LA default
+							var igroup=d.properties.IGROUP;
+							if (isNaN(igroup)){igroup=0;}
+							var igroupval =((0.15*(igroup+1))*.9).toFixed(2);
+							
 							var polyline = L.polyline(d.geometry.coordinates,
 								{color: '#34deeb',
-								fill: '#34deeb',
+								fill:true,
+								fillColor: '#34deeb',
+								fillOpacity: 0,
+								opacity: 0,
 								weight: 1,
-								opacity: 1,
-								fillOpacity: 0.5,
 								className:"a"+d.properties.GEOID}					
-							).addTo(overlays["c"]);
+							).addTo(overlays[igroup.toString()]);
 					
-					
-						var anicounty = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
-						$(anicounty)
-							.attr("attributeName", "fill")
-							.attr("from" ,"#ffffff")
-							.attr("to" ,"#34deeb")
-							.attr("begin" ,tsi+"s")
-							.attr("dur" ,"3s")
-							.attr("fill","freeze");
+							var anicounty = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+							$(anicounty)	
+								.attr("attributeName", "fill-opacity")
+								.attr("from" ,"0")
+								.attr("to" ,igroupval )
+								.attr("begin" ,tsi+"s")
+								.attr("dur" ,"2s")
+								.attr("fill","freeze");		
+							$(".a"+d.properties.GEOID).append(anicounty);
+
 							
-						$(".a"+d.properties.GEOID).append(anicounty); 
+							 anicounty = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
+							$(anicounty)	
+								.attr("attributeName", "stroke-opacity")
+								.attr("from" ,"0")
+								.attr("to" ,"0.75")
+								.attr("begin" ,tsi+"s")
+								.attr("dur" ,"2s")
+								.attr("fill","freeze");		
+							$(".a"+d.properties.GEOID).append(anicounty);									
+								
+							
+								
 						polyline.on('mouseover', cdetail);
 						polyline.on('click', cdetail);
 						polyline.myData=d;
@@ -145,16 +211,9 @@ var tlattr='<span style="background=color:#92b1ac">&copy; <a href="https://stadi
 							if (d.properties.DATES[offsetdate][1] > 0){
 								if (!countyListA.includes(d.properties.GEOID)){
 									countyListA.push(d.properties.GEOID);
-									$(".a"+d.properties.GEOID).empty();
-									var anicounty = document.createElementNS('http://www.w3.org/2000/svg', 'animate');
-									$(anicounty)
-										.attr("attributeName", "fill")
-										.attr("from" ,"#34deeb")
-										.attr("to" ,"red")
-										.attr("begin" ,tsi+"s")
-										.attr("dur" ,"3s")
-										.attr("fill","freeze");
-										$(".a"+d.properties.GEOID).append(anicounty);				
+						//			$(".a"+d.properties.GEOID).attr("stroke","red");
+						//			$(".a"+d.properties.GEOID).attr("stroke-opacity","0.1");
+						
 								}
 							}
 						}
@@ -170,10 +229,9 @@ var tlattr='<span style="background=color:#92b1ac">&copy; <a href="https://stadi
 		})
 		};
 
-	$('#startpan').click(function(){
-		addcounties(500);
-	});
+	
 
+ 
 		
 	function cdetail(e){
 		var marker = e.target;
@@ -194,14 +252,10 @@ var tlattr='<span style="background=color:#92b1ac">&copy; <a href="https://stadi
 			rateC=parseFloat(rateC).toFixed(2)+"%";
 			per100C=parseFloat(per100C).toFixed(0);
 			$("#rateC").text(rateC);
-			$("#per100C").text(per100C)
+			$("#per100C").text(per100C);
 			
 			
-			$("#infectedcountCL").text("Confirmed");
-			$("#facountCL").text("Deaths");
-			$("#populationCL").text("Population");
-			$("#rateCL").text("Rate");
-			$("#per100CL").text("Cases per 100k")
+			
 		}
 		
 	}
@@ -209,7 +263,7 @@ var tlattr='<span style="background=color:#92b1ac">&copy; <a href="https://stadi
 	
 	
     function addk(){
-		  $.getJSON("js/covid_countyboundry_day3.json") 
+		  $.getJSON("js/covid_countyboundry_day4.json") 
             .done(function(data) {
 					geoJsonData=data;
 					
@@ -224,15 +278,26 @@ var tlattr='<span style="background=color:#92b1ac">&copy; <a href="https://stadi
                     "Simple": Stadia_AlidadeSmooth,
 					"Green": custom2,
                 };
-				overlays["c"] = L.featureGroup().addTo(map);
 				
-                L.control.layers(baseLayers, overlays,{position: 'bottomright', collapsed: true}).addTo(map);
+				overlays["0"] = L.featureGroup().addTo(map);
+				overlays["1"] = L.featureGroup().addTo(map);
+				overlays["2"] = L.featureGroup().addTo(map);
+				overlays["3"] = L.featureGroup().addTo(map);
+				overlays["4"] = L.featureGroup().addTo(map);
+				overlays["5"] = L.featureGroup().addTo(map);
+				overlays["6"] = L.featureGroup().addTo(map);
+				
+				
+                L.control.layers(baseLayers, overlays,{position: 'bottomright', collapsed: false}).addTo(map);
 				map.inertia = false;
 			    ;
             });
 	 }
-
-
+	
+	var tsi=-0.5;
+	var ts = setInterval(function(){
+			tsi=tsi+0.5;
+		}, 500);
 
 });
 
