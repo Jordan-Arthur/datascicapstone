@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
-<title>Another Covid19 Map</title>
+<title>Covid19 Choropleth with Time-Series</title>
 <meta charset="utf-8" />
 <style>
   #map{height:500px;width:950px;background-color:#ddd; }
@@ -46,9 +46,13 @@
 <div class="center" style="width:950px;"><span>Press "Play Time-Series" below to run animation, hover, touch, or click county to see details</span></div>
 <div  class="center" id="map"></div>
 
-<div class="center" style='width:950px;'>
 
-<table style="font-size:1.25em;color:#fefefe;" >
+
+
+<div class="center" style='width:950px;'>
+<div class="center" style="width:950px;text-align:center;"><span>Cases per each 100,000 population by county over the past 60 days</span></div>
+<table style="font-size:1.1em;color:#fefefe;" >
+<div id='db'></div>
 <colgroup>
 <col style="width:150px">
 <col style="width:150px">
@@ -70,8 +74,8 @@
 	</tr>
 <tr>
 	<td>Deaths:</td>
-	<td style="color:#fe0000;text-align:right;"><span id="facount" ></span></td>
-	<td style="color:#fe0000;text-align:right;"><span id="facountC" ></span></td>
+	<td style="text-align:right;"><span id="facount" ></span></td>
+	<td style="text-align:right;"><span id="facountC" ></span></td>
 </tr>
 <tr>
 	<td>Rate:</td>
@@ -99,7 +103,16 @@
 
 <div class="center" style="padding:30px;width:950px;">Data source: weather.com - https://watsonads.cogads.weather.com/wa/covid19-bot2020-03-18-15-15-14-610/fetchvardata?type=aggregate&recordType=all&locationType=geocode&locationId=34.69,-84.45, one file per county filtered and combined for use here.
 </div>
-	
+<svg width="120" height="120"  viewBox="0 0 120 120"
+     xmlns="http://www.w3.org/2000/svg" version="1.1"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!-- trigger -->
+    <rect id="startButton" style="cursor:pointer;"
+          x="19.5" y="62.5" rx="5" height="1" width="1"
+           stroke-width="0" />
+  
+</svg>	
 
 <script src="js/covid.js"></script>
 
